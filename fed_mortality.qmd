@@ -15,53 +15,39 @@ format:
 execute:
   echo: true
 ---
-## Overview
 
-- **Background**: Analysis of federal employee survival patterns
-- **Data Source**: OPM's Central Personnel Data File (CPDF)
-- **Time Period**: 1973-2013
-- **Key Research Questions**:
-  - How do mortality patterns differ among federal employees?
-  - What factors are associated with survival differences?
-  - How do demographics and job characteristics impact mortality risk?
+## Introduction
+
+-   **Motivation**:
+    -   "Doing good is good for you!"
+    -   So, is public service good for longevity?
+    -   
+
+## 
 
 ## Data Description
 
-- **Source**: Dynamic and status records from CPDF
-- **Size**: Multiple data chunks, thousands of federal employees
-- **Key Variables**:
-  - Demographics (age, veteran status, minority status, education)
-  - Job characteristics (salary, supervisory status, occupation category)
-  - Time-varying events (awards, stressful events (furloughs, suspensions)
-  - Death events
-- **Analytical Approach**: Survival analysis
+-   **Source**: Dynamic and status records from CPDF
+-   **Size**: Multiple data chunks, thousands of federal employees
+-   **Key Variables**:
+    -   Demographics (age, veteran status, minority status, education)
+    -   Job characteristics (salary, supervisory status, occupation category)
+    -   Time-varying events (awards, stressful events (furloughs, suspensions)
+    -   Death events
+-   **Analytical Approach**: Survival analysis
 
 ## Mortality Patterns
 
-- Overall mortality rate among federal employees
-- Differences by decade
-- Key death-related action codes in the CPDF:
-  - Code 350: Death
-  - Evidence of other separation codes
-
-```{r}
-#| echo: false
-#| fig-align: center
-#| fig-cap: "Overall Survival Curve for Federal Employees"
-
-# This is where you would put code to display your overall survival curve
-# knitr::include_graphics("path/to/overall_survival.png")
-```
+![](fed_mortality_files/results/overall_survival.png)
 
 ## Demographics and Survival
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ### Veterans
 
-- Survival differences between veterans and non-veterans
-- Log-rank test comparison
-- Higher mortality risk observed for veterans (HR = 1.96, p < 0.001)
+-   Survival differences between veterans and non-veterans
+-   Log-rank test comparison
+-   Higher mortality risk observed for veterans (HR = 1.96, p \< 0.001)
 
 ```{r}
 #| echo: false
@@ -71,9 +57,9 @@ execute:
 
 ### Minorities
 
-- Survival patterns by minority status
-- Log-rank test results
-- Lower mortality risk for minorities (HR = 0.70, p < 0.001)
+-   Survival patterns by minority status
+-   Log-rank test results
+-   Lower mortality risk for minorities (HR = 0.70, p \< 0.001)
 
 ```{r}
 #| echo: false
@@ -83,27 +69,25 @@ execute:
 
 ### Age
 
-- Age-stratified survival analysis
-- Linear relationship with mortality risk
-- Slight negative coefficient (HR = 0.99 per year of age)
+-   Age-stratified survival analysis
+-   Linear relationship with mortality risk
+-   Slight negative coefficient (HR = 0.99 per year of age)
 
 ```{r}
 #| echo: false
 #| fig-align: center
 # knitr::include_graphics("path/to/survival_curves_age.png")
 ```
-
 :::
 
 ## Job Characteristics and Survival
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ### Supervisory Status
 
-- Supervisors vs. non-supervisors
-- Log-rank test comparison
-- Lower mortality risk for supervisors (HR = 0.76, p < 0.001)
+-   Supervisors vs. non-supervisors
+-   Log-rank test comparison
+-   Lower mortality risk for supervisors (HR = 0.76, p \< 0.001)
 
 ```{r}
 #| echo: false
@@ -113,9 +97,9 @@ execute:
 
 ### Education
 
-- Survival by education level
-- Small positive effect of higher education (HR = 1.04 per education level)
-- Visualized across four education groups
+-   Survival by education level
+-   Small positive effect of higher education (HR = 1.04 per education level)
+-   Visualized across four education groups
 
 ```{r}
 #| echo: false
@@ -125,28 +109,26 @@ execute:
 
 ### Salary
 
-- Strong association with survival
-- Higher salary quartiles show significantly lower mortality
-- Largest effect among all variables (HR = 0.48 per quartile)
+-   Strong association with survival
+-   Higher salary quartiles show significantly lower mortality
+-   Largest effect among all variables (HR = 0.48 per quartile)
 
 ```{r}
 #| echo: false
 #| fig-align: center
 # knitr::include_graphics("path/to/survival_curves_salary.png")
 ```
-
 :::
 
 ## Time-Varying Events
 
-- **Award Events**: 
-  - Strong negative association with mortality (HR = 0.23)
-  - Suggests potential protective effect or selection bias
-
-- **Stressful Events**:
-  - Very strong negative association with mortality (HR = 0.06)
-  - Unexpected direction - requires further investigation
-  - Potential immortal time bias or measurement issues
+-   **Award Events**:
+    -   Strong negative association with mortality (HR = 0.23)
+    -   Suggests potential protective effect or selection bias
+-   **Stressful Events**:
+    -   Very strong negative association with mortality (HR = 0.06)
+    -   Unexpected direction - requires further investigation
+    -   Potential immortal time bias or measurement issues
 
 ## Cox Proportional Hazards Results
 
@@ -203,6 +185,7 @@ kable(cox_results) %>%
 ```
 
 <!-- Option 2: Read directly from a model object if you're running the model in Quarto -->
+
 ```{r}
 #| echo: false
 #| eval: false  # Set to true if you want to use this approach
@@ -231,37 +214,35 @@ kable(cox_results) %>%
 
 ## Key Findings
 
-- **Demographic Factors**:
-  - Veterans have significantly higher mortality risk
-  - Minorities show lower mortality risk
-  - Age shows expected but modest effects
-
-- **Job Characteristics**:
-  - Higher salary strongly predicts lower mortality
-  - Supervisory status associated with lower mortality
-  - Education has a small positive association with mortality
+-   **Demographic Factors**:
+    -   Veterans have significantly higher mortality risk
+    -   Minorities show lower mortality risk
+    -   Age shows expected but modest effects
+-   **Job Characteristics**:
+    -   Higher salary strongly predicts lower mortality
+    -   Supervisory status associated with lower mortality
+    -   Education has a small positive association with mortality
 
 ## Limitations and Future Directions
 
-- **Limitations**:
-  - Potential immortal time bias in time-varying events
-  - Missing data for some covariates
-  - Lack of cause-specific mortality information
-  - Need for more comprehensive covariates
-
-- **Future Directions**:
-  - Cause-specific mortality analysis
-  - Further investigation of unexpected findings (time-varying events)
-  - Extended time period analysis
-  - Inclusion of additional covariates (health-related variables)
+-   **Limitations**:
+    -   Potential immortal time bias in time-varying events
+    -   Missing data for some covariates
+    -   Lack of cause-specific mortality information
+    -   Need for more comprehensive covariates
+-   **Future Directions**:
+    -   Cause-specific mortality analysis
+    -   Further investigation of unexpected findings (time-varying events)
+    -   Extended time period analysis
+    -   Inclusion of additional covariates (health-related variables)
 
 ## Conclusions
 
-- Federal employee mortality patterns show significant associations with demographic and job characteristics
-- Strongest predictors: veteran status (+), salary (-), supervisory status (-)
-- Time-varying events require careful interpretation
-- Results highlight importance of considering socioeconomic factors in mortality studies
-- Implications for federal workforce health initiatives and policies
+-   Federal employee mortality patterns show significant associations with demographic and job characteristics
+-   Strongest predictors: veteran status (+), salary (-), supervisory status (-)
+-   Time-varying events require careful interpretation
+-   Results highlight importance of considering socioeconomic factors in mortality studies
+-   Implications for federal workforce health initiatives and policies
 
 ## Thank You
 
@@ -275,6 +256,6 @@ kable(cox_results) %>%
 
 ## References
 
-- Central Personnel Data File (CPDF) documentation
-- Cox, D. R. (1972). Regression models and life-tables. *Journal of the Royal Statistical Society: Series B (Methodological)*, 34(2), 187-202.
-- Kaplan, E. L., & Meier, P. (1958). Nonparametric estimation from incomplete observations. *Journal of the American Statistical Association*, 53(282), 457-481.
+-   Central Personnel Data File (CPDF) documentation
+-   Cox, D. R. (1972). Regression models and life-tables. *Journal of the Royal Statistical Society: Series B (Methodological)*, 34(2), 187-202.
+-   Kaplan, E. L., & Meier, P. (1958). Nonparametric estimation from incomplete observations. *Journal of the American Statistical Association*, 53(282), 457-481.
