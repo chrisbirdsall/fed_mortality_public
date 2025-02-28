@@ -1,7 +1,13 @@
 ---
 title: "This Job is Killing Me"
 subtitle: "A Survival Analysis of Federal Civil Servants"
-author: "Chris Birdsall"
+author:
+  - name: Chris Birdsall
+    affiliations:
+      - name: Boise State University
+  - name: John Marvel
+    affiliations:
+      - name: American University
 date: "February 28, 2025"
 format: 
   revealjs:
