@@ -322,8 +322,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="fed_mortality_files/libs/kePrint-0.0.1/kePrint.js"></script>
-  <link href="fed_mortality_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -361,233 +359,102 @@ John Marvel
 <ul>
 <li>“Doing good is good for you!”</li>
 <li>So, is public service good for longevity?</li>
-<li></li>
+<li>…probably depends on who you are and what kind of job you have</li>
 </ul></li>
 </ul>
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
-</section>
-<section id="data-description" class="slide level2">
-<h2>Data Description</h2>
+<section id="introduction-1" class="slide level2">
+<h2>Introduction</h2>
 <ul>
-<li><strong>Source</strong>: Dynamic and status records from CPDF</li>
-<li><strong>Size</strong>: Multiple data chunks, thousands of federal employees</li>
-<li><strong>Key Variables</strong>:
+<li><strong>Research Questions</strong>:
 <ul>
-<li>Demographics (age, veteran status, minority status, education)</li>
-<li>Job characteristics (salary, supervisory status, occupation category)</li>
-<li>Time-varying events (awards, stressful events (furloughs, suspensions)</li>
-<li>Death events</li>
+<li>How do mortality patterns differ among federal employees?</li>
+<li>Which factors are associated with survival differences?</li>
 </ul></li>
-<li><strong>Analytical Approach</strong>: Survival analysis</li>
 </ul>
 </section>
-<section id="mortality-patterns" class="slide level2">
-<h2>Mortality Patterns</h2>
+<section id="previous-research" class="slide level2">
+<h2>Previous Research</h2>
+<ul>
+<li>Surprisingly scant research on occupation/job-related characteristics and mortality</li>
+<li>Public service motivation research suggests association between public service and job satisfaction</li>
+<li>Activating PSM in public service setting often depending on job content and perceived connection to advancing the public good</li>
+</ul>
+</section>
+<section id="data-and-methods" class="slide level2">
+<h2>Data and Methods</h2>
+<ul>
+<li><p><strong>Data Source</strong>: 40 years (1973-2013) of OPM’s Central Personnel Data File (CPDF) via FOIA</p></li>
+<li><p><strong>Method</strong>: Survival Analysis - Time-varying Cox Proportional Hazards Model</p></li>
+</ul>
+</section>
+<section id="key-variables" class="slide level2">
+<h2>Key Variables</h2>
+<ul>
+<li>D<strong>emographics:</strong> age, veteran status, minority status, education, sex (forthcoming)</li>
+<li>J<strong>ob characteristics:</strong> salary, supervisory status, occupation category</li>
+<li><strong>Time-varying events:</strong> performance awards, stressful events (furloughs, suspensions)</li>
+<li><strong>Death events</strong></li>
+</ul>
+</section>
+<section id="survival-probability" class="slide level2">
+<h2>Survival Probability</h2>
 
-<img data-src="fed_mortality_files/results/overall_survival.png" class="r-stretch"></section>
-<section id="demographics-and-survival" class="slide level2">
-<h2>Demographics and Survival</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Veterans</a></li><li><a href="#tabset-1-2">Minorities</a></li><li><a href="#tabset-1-3">Age</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<ul>
-<li>Survival differences between veterans and non-veterans</li>
-<li>Log-rank test comparison</li>
-<li>Higher mortality risk observed for veterans (HR = 1.96, p &lt; 0.001)</li>
-</ul>
-</div>
-<div id="tabset-1-2">
-<ul>
-<li>Survival patterns by minority status</li>
-<li>Log-rank test results</li>
-<li>Lower mortality risk for minorities (HR = 0.70, p &lt; 0.001)</li>
-</ul>
-</div>
-<div id="tabset-1-3">
-<ul>
-<li>Age-stratified survival analysis</li>
-<li>Linear relationship with mortality risk</li>
-<li>Slight negative coefficient (HR = 0.99 per year of age)</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="job-characteristics-and-survival" class="slide level2">
-<h2>Job Characteristics and Survival</h2>
-<div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Supervisory Status</a></li><li><a href="#tabset-2-2">Education</a></li><li><a href="#tabset-2-3">Salary</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1">
-<ul>
-<li>Supervisors vs.&nbsp;non-supervisors</li>
-<li>Log-rank test comparison</li>
-<li>Lower mortality risk for supervisors (HR = 0.76, p &lt; 0.001)</li>
-</ul>
-</div>
-<div id="tabset-2-2">
-<ul>
-<li>Survival by education level</li>
-<li>Small positive effect of higher education (HR = 1.04 per education level)</li>
-<li>Visualized across four education groups</li>
-</ul>
-</div>
-<div id="tabset-2-3">
-<ul>
-<li>Strong association with survival</li>
-<li>Higher salary quartiles show significantly lower mortality</li>
-<li>Largest effect among all variables (HR = 0.48 per quartile)</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="time-varying-events" class="slide level2">
-<h2>Time-Varying Events</h2>
-<ul>
-<li><strong>Award Events</strong>:
-<ul>
-<li>Strong negative association with mortality (HR = 0.23)</li>
-<li>Suggests potential protective effect or selection bias</li>
-</ul></li>
-<li><strong>Stressful Events</strong>:
-<ul>
-<li>Very strong negative association with mortality (HR = 0.06)</li>
-<li>Unexpected direction - requires further investigation</li>
-<li>Potential immortal time bias or measurement issues</li>
-</ul></li>
-</ul>
-</section>
+<img data-src="fed_mortality_files/results/overall_survival.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="demographics-and-survival-minority-status" class="slide level2">
+<h2>Demographics and Survival: Minority Status</h2>
+
+<img data-src="fed_mortality_files/results/survival_curves_minority.png" class="r-stretch"></section>
+<section id="demographics-and-survival-veteran-status" class="slide level2">
+<h2>Demographics and Survival: Veteran Status</h2>
+
+<img data-src="fed_mortality_files/results/survival_curves_veteran.png" class="r-stretch"></section>
+<section id="demographics-and-survival-education" class="slide level2">
+<h2>Demographics and Survival: Education</h2>
+
+<img data-src="fed_mortality_files/results/survival_curves_education.png" class="r-stretch"></section>
+<section id="job-characteristics-and-survival-salary" class="slide level2">
+<h2>Job Characteristics and Survival: Salary</h2>
+
+<img data-src="fed_mortality_files/results/survival_curves_salary.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="job-characteristics-and-survival-management" class="slide level2">
+<h2>Job Characteristics and Survival: Management</h2>
+
+<img data-src="fed_mortality_files/results/survival_curves_supervisor.png" class="r-stretch"></section>
+<section id="job-characteristics-and-survival-occupational-category" class="slide level2">
+<h2>Job Characteristics and Survival: Occupational Category</h2>
+
+<img data-src="fed_mortality_files/results/survival_curves_occupation.png" class="r-stretch"></section>
 <section id="cox-proportional-hazards-results" class="slide level2">
 <h2>Cox Proportional Hazards Results</h2>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table table-striped table-hover caption-top" data-quarto-postprocess="true" style="font-size: 18px; width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Hazard.Ratio</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">X95..CI</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Veteran status</td>
-<td style="text-align: right; font-weight: bold;">1.96</td>
-<td style="text-align: left;">(1.87, 2.06)</td>
-<td style="text-align: left;">&lt;0.001</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Minority status</td>
-<td style="text-align: right; font-weight: bold;">0.70</td>
-<td style="text-align: left;">(0.66, 0.75)</td>
-<td style="text-align: left;">&lt;0.001</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Age (per year)</td>
-<td style="text-align: right; font-weight: bold;">0.99</td>
-<td style="text-align: left;">(0.99, 1.00)</td>
-<td style="text-align: left;">&lt;0.001</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Education level</td>
-<td style="text-align: right; font-weight: bold;">1.04</td>
-<td style="text-align: left;">(1.01, 1.06)</td>
-<td style="text-align: left;">0.003</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; background-color: rgba(232, 244, 249, 255) !important;">Supervisor</td>
-<td style="text-align: right; background-color: rgba(232, 244, 249, 255) !important; font-weight: bold;">0.76</td>
-<td style="text-align: left; background-color: rgba(232, 244, 249, 255) !important;">(0.71, 0.81)</td>
-<td style="text-align: left; background-color: rgba(232, 244, 249, 255) !important;">&lt;0.001</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; background-color: rgba(232, 244, 249, 255) !important;">Salary group</td>
-<td style="text-align: right; background-color: rgba(232, 244, 249, 255) !important; font-weight: bold;">0.48</td>
-<td style="text-align: left; background-color: rgba(232, 244, 249, 255) !important;">(0.46, 0.49)</td>
-<td style="text-align: left; background-color: rgba(232, 244, 249, 255) !important;">&lt;0.001</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Award event</td>
-<td style="text-align: right; font-weight: bold;">0.23</td>
-<td style="text-align: left;">(0.12, 0.46)</td>
-<td style="text-align: left;">&lt;0.001</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Stressful event</td>
-<td style="text-align: right; font-weight: bold;">0.06</td>
-<td style="text-align: left;">(0.02, 0.16)</td>
-<td style="text-align: left;">&lt;0.001</td>
-</tr>
-</tbody>
-</table>
 
-
-</div>
-</div>
-<!-- Option 2: Read directly from a model object if you're running the model in Quarto -->
-</section>
-<section id="key-findings" class="slide level2">
-<h2>Key Findings</h2>
-<ul>
-<li><strong>Demographic Factors</strong>:
-<ul>
-<li>Veterans have significantly higher mortality risk</li>
-<li>Minorities show lower mortality risk</li>
-<li>Age shows expected but modest effects</li>
-</ul></li>
-<li><strong>Job Characteristics</strong>:
-<ul>
-<li>Higher salary strongly predicts lower mortality</li>
-<li>Supervisory status associated with lower mortality</li>
-<li>Education has a small positive association with mortality</li>
-</ul></li>
-</ul>
-</section>
+<img data-src="fed_mortality_files/results/time_varying_hazard_ratios.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="limitations-and-future-directions" class="slide level2">
 <h2>Limitations and Future Directions</h2>
 <ul>
 <li><strong>Limitations</strong>:
 <ul>
-<li>Potential immortal time bias in time-varying events</li>
-<li>Missing data for some covariates</li>
-<li>Lack of cause-specific mortality information</li>
-<li>Need for more comprehensive covariates</li>
+<li>Right censoring (don’t know what happens after employees retire)</li>
+<li>Departures other than retirement and death are omitted</li>
+<li>No private sector comparison</li>
 </ul></li>
 <li><strong>Future Directions</strong>:
 <ul>
-<li>Cause-specific mortality analysis</li>
-<li>Further investigation of unexpected findings (time-varying events)</li>
-<li>Extended time period analysis</li>
-<li>Inclusion of additional covariates (health-related variables)</li>
+<li>Do effects vary by agency?</li>
+<li>Further investigation of occupational differences</li>
+<li>What’s going on with stress events? (furloughs and suspensions)</li>
+<li>Private sector comparison</li>
 </ul></li>
 </ul>
 </section>
-<section id="conclusions" class="slide level2">
-<h2>Conclusions</h2>
-<ul>
-<li>Federal employee mortality patterns show significant associations with demographic and job characteristics</li>
-<li>Strongest predictors: veteran status (+), salary (-), supervisory status (-)</li>
-<li>Time-varying events require careful interpretation</li>
-<li>Results highlight importance of considering socioeconomic factors in mortality studies</li>
-<li>Implications for federal workforce health initiatives and policies</li>
-</ul>
-</section>
 <section id="thank-you" class="slide level2">
-<h2>Thank You</h2>
-<p><strong>Questions or Comments?</strong></p>
-</section>
-<section id="references" class="slide level2">
-<h2>References</h2>
+<h2>Thank You!</h2>
 <ul>
-<li>Central Personnel Data File (CPDF) documentation</li>
-<li>Cox, D. R. (1972). Regression models and life-tables. <em>Journal of the Royal Statistical Society: Series B (Methodological)</em>, 34(2), 187-202.</li>
-<li>Kaplan, E. L., &amp; Meier, P. (1958). Nonparametric estimation from incomplete observations. <em>Journal of the American Statistical Association</em>, 53(282), 457-481.</li>
+<li>Email me your ideas! chrisbirdsall@boisestate.edu</li>
 </ul>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
@@ -804,44 +671,6 @@ John Marvel
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
